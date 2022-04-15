@@ -15,6 +15,7 @@ Project is built ontop of TopDown engine asset and uses Photon Fusion for networ
 - TopDown Engine - a backbone of the project, used almost everywhere to implement complex systems such as Weapon, AI, Character controll ext.
 - Odin inspector - mostly used for making custom editors/inspectors and to some extent for serialization
 - Riderflow - productivity asset for scene building and management
+- Github for unity - Github integration for unity, includes git LFS and adds file locking  
 - Rainbow folders - colored folders in project menu, yeah that's it
 - Multiple assets for art and music
 - Several Unity plugins, the list is too long to put here, check package manifest or package manager in unity
