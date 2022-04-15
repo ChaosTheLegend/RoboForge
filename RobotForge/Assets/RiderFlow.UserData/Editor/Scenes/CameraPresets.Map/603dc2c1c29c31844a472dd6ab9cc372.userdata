@@ -1,0 +1,28 @@
+{
+  "b0a043eef9ba52d47a7168bdb6da703d": {
+    "sceneGuid": "603dc2c1c29c31844a472dd6ab9cc372",
+    "uniqueCameraId": "b0a043eef9ba52d47a7168bdb6da703d",
+    "name": "SceneEdit",
+    "pointX": 3.77057457,
+    "pointY": 22.0119114,
+    "pointZ": -23.9977665,
+    "directionX": 0.347474456,
+    "directionY": -0.226595923,
+    "directionZ": 0.08693681,
+    "directionW": 0.905774236,
+    "zoom": 1.88742828
+  },
+  "47ebfa4328d7b8b46b93b22e10340d82": {
+    "sceneGuid": "603dc2c1c29c31844a472dd6ab9cc372",
+    "uniqueCameraId": "47ebfa4328d7b8b46b93b22e10340d82",
+    "name": "UI Edit",
+    "pointX": 4876.772,
+    "pointY": 1037.101,
+    "pointZ": 72.4811,
+    "directionX": 0.0,
+    "directionY": 0.0,
+    "directionZ": 0.0,
+    "directionW": 1.0,
+    "zoom": 13.209034
+  }
+}
