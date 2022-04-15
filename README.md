@@ -17,5 +17,5 @@ Project is built ontop of TopDown engine asset and uses Photon Fusion for networ
 - Riderflow - productivity asset for scene building and management
 - Rainbow folders - colored folders in project menu, yeah that's it
 - Multiple assets for art and music
-- Several Unity plugins, the list is too long to put here, check package manager
+- Several Unity plugins, the list is too long to put here, check package manifest or package manager in unity
 
