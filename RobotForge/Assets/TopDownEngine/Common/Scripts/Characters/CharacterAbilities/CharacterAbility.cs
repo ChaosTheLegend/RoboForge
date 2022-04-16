@@ -3,6 +3,7 @@ using System.Collections;
 using MoreMountains.Tools;
 using MoreMountains.Feedbacks;
 using System.Linq;
+using Fusion;
 
 namespace MoreMountains.TopDownEngine
 {	
@@ -10,7 +11,7 @@ namespace MoreMountains.TopDownEngine
 	/// A class meant to be overridden that handles a character's ability. 
 	/// </summary>
 	//[RequireComponent(typeof(Character))]
-	public class CharacterAbility : MonoBehaviour 
+	public class CharacterAbility : NetworkBehaviour
 	{
 		/// the sound fx to play when the ability starts
 		[Tooltip("the sound fx to play when the ability starts")]
@@ -40,7 +41,16 @@ namespace MoreMountains.TopDownEngine
         /// an array containing all the blocking condition states. If the Character is in one of these states and tries to trigger this ability, it won't be permitted. Useful to prevent this ability from being used while dead, for example.
         [Tooltip("an array containing all the blocking condition states. If the Character is in one of these states and tries to trigger this ability, it won't be permitted. Useful to prevent this ability from being used while dead, for example.")]
         public CharacterStates.CharacterConditions[] BlockingConditionStates;
-
+        
+        /// <summary>
+        /// Use this for actions that have to be synched with server
+        /// </summary>
+        protected float RunnerDeltaTime => Runner.DeltaTime;
+        
+        /// <summary>
+        /// Use this for actions that doesn't need to be synched with other clients 
+        /// </summary>
+        protected float LocalDeltaTime => Time.deltaTime;
         public virtual bool AbilityAuthorized
         {
 	        get

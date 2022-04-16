@@ -1,23 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using Fusion;
-using Network;
-using UnityEngine;
 
-public class NetworkInputPreprocessor : NetworkBehaviour
+namespace Network
 {
-    private NetworkInputManager inputManager;
-    public override void Spawned()
+    public class NetworkInputPreprocessor : NetworkBehaviour
     {
-        inputManager = GetComponent<NetworkInputManager>();
-        inputManager.InitializeManually();
-    }
-
-    public override void FixedUpdateNetwork()
-    {
-        if (GetInput(out NetworkInputData data))
+        private NetworkInputManager inputManager;
+        public override void Spawned()
         {
-            inputManager.ProcessButtons(data);
+            inputManager = GetComponent<NetworkInputManager>();
+            inputManager.InitializeManually();
+        }
+
+        public override void FixedUpdateNetwork()
+        {
+            if (GetInput(out NetworkInputData data))
+            {
+                inputManager.TriggerButtons(data);
+            }
         }
     }
 }

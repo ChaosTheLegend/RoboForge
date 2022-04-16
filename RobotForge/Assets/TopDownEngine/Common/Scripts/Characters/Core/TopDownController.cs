@@ -2,6 +2,7 @@
 using System.Collections;
 using MoreMountains.Tools;
 using System.Collections.Generic;
+using Fusion;
 
 namespace MoreMountains.TopDownEngine
 {	
@@ -9,7 +10,7 @@ namespace MoreMountains.TopDownEngine
     /// Do not use this class directly, use TopDownController2D for 2D characters, or TopDownController3D for 3D characters
     /// Both of these classes inherit from this one
     /// </summary>
-	public class TopDownController : MonoBehaviour 
+	public class TopDownController : NetworkBehaviour
 	{
         [Header("Gravity")]
         /// the current gravity to apply to our character (positive goes down, negative goes up, higher value, higher acceleration)
