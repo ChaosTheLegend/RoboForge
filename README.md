@@ -10,6 +10,10 @@ This project was migrated from Plastic SCM due to it being unreliable, once all 
 
 Project is built ontop of TopDown engine asset and uses Photon Fusion for networking, In the future, Playfab may also be added to the stack to store player data and manage accounts
 
+## Git LFS
+
+Since unity projects can be very large, I have to use Git LFS (large file storage) to store assets, thus most(if not all) assets are stored as references
+
 ## Plugins used
 
 - TopDown Engine - a backbone of the project, used almost everywhere to implement complex systems such as Weapon, AI, Character controll ext.
