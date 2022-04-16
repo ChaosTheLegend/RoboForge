@@ -12,7 +12,7 @@ Project is built ontop of TopDown engine asset and uses Photon Fusion for networ
 
 ## Git LFS
 
-Since unity projects can be very large, I have to use Git LFS (large file storage) to store assets, thus most(if not all) assets are stored as references
+Since unity projects can be very large, I have to use Git LFS (large file storage) to store assets
 
 ## Plugins used
 
