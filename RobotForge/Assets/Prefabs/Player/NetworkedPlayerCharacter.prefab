@@ -55,6 +55,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114060530881921866, guid: 5ee37e4df390c4544825b67e0cf6745e,
+        type: 3}
+      propertyPath: InterpolationTarget
+      value: 
+      objectReference: {fileID: 2703439151377930790}
+    - target: {fileID: 114060530881921866, guid: 5ee37e4df390c4544825b67e0cf6745e,
+        type: 3}
+      propertyPath: _interpolationDataSource
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114510539804127886, guid: 5ee37e4df390c4544825b67e0cf6745e,
+        type: 3}
+      propertyPath: InitialWeapon
+      value: 
+      objectReference: {fileID: 8335593830201386184, guid: f6551f66aa0220c4f9c14785a1f3b29f,
+        type: 3}
+    - target: {fileID: 114691065578444412, guid: 5ee37e4df390c4544825b67e0cf6745e,
+        type: 3}
+      propertyPath: RotationMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114691065578444412, guid: 5ee37e4df390c4544825b67e0cf6745e,
+        type: 3}
+      propertyPath: MovementRotatingModel
+      value: 
+      objectReference: {fileID: 8846480218268068376}
     - target: {fileID: 1372077924604039323, guid: 5ee37e4df390c4544825b67e0cf6745e,
         type: 3}
       propertyPath: NetworkedBehaviours.Array.size
@@ -79,12 +105,12 @@ PrefabInstance:
         type: 3}
       propertyPath: NetworkedBehaviours.Array.data[8]
       value: 
-      objectReference: {fileID: 6765225277291471660}
+      objectReference: {fileID: 6843963677294562443}
     - target: {fileID: 1372077924604039323, guid: 5ee37e4df390c4544825b67e0cf6745e,
         type: 3}
       propertyPath: NetworkedBehaviours.Array.data[9]
       value: 
-      objectReference: {fileID: 6843963677294562443}
+      objectReference: {fileID: 8633486052375412821}
     - target: {fileID: 1372077924604039323, guid: 5ee37e4df390c4544825b67e0cf6745e,
         type: 3}
       propertyPath: NetworkGuid.RawGuidValue.Array.data[0]
@@ -146,6 +172,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2dd01ffdd1cc045a614bd354672723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2703439151377930790 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4586608631069042, guid: 5ee37e4df390c4544825b67e0cf6745e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2708001390364353364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2706877999329521444 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1130127693270128, guid: 5ee37e4df390c4544825b67e0cf6745e,
@@ -184,32 +216,6 @@ MonoBehaviour:
   CharacterBrain: {fileID: 0}
   OptimizeForMobile: 1
   linkedInputManager: {fileID: 2390660524713862648}
---- !u!114 &6765225277291471660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2706917329253381840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
-  InterpolationSpace: 0
-  InterpolationTarget: {fileID: 0}
-  InterpolateErrorCorrection: 1
-  InterpolatedErrorCorrectionSettings:
-    MinRate: 3.3
-    MaxRate: 10
-    PosBlendStart: 0.25
-    PosBlendEnd: 1
-    PosMinCorrection: 0.025
-    PosTeleportDistance: 2
-    RotBlendStart: 0.1
-    RotBlendEnd: 0.5
-    RotTeleportRadians: 1.5
 --- !u!114 &6843963677294562443 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8894156671597670367, guid: 5ee37e4df390c4544825b67e0cf6745e,
@@ -234,3 +240,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01754710d9f92ec4d9a21b81f5682667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8846480218268068376 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6868484254679763276, guid: 5ee37e4df390c4544825b67e0cf6745e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2708001390364353364}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8633486052375412821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8846480218268068376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+  InterpolationSpace: 0
+  InterpolationTarget: {fileID: 2703439151377930790}
+  InterpolateErrorCorrection: 1
+  InterpolatedErrorCorrectionSettings:
+    MinRate: 3.3
+    MaxRate: 10
+    PosBlendStart: 0.25
+    PosBlendEnd: 1
+    PosMinCorrection: 0.025
+    PosTeleportDistance: 2
+    RotBlendStart: 0.1
+    RotBlendEnd: 0.5
+    RotTeleportRadians: 1.5

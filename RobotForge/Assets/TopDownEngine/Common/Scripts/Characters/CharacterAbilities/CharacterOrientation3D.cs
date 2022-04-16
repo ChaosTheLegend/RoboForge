@@ -235,7 +235,7 @@ namespace MoreMountains.TopDownEngine
                 if (_currentDirection != Vector3.zero)
                 {
                     _tmpRotation = Quaternion.LookRotation(_currentDirection);
-                    _newMovementQuaternion = Quaternion.Slerp(MovementRotatingModel.transform.rotation, _tmpRotation, Time.deltaTime * RotateToFaceMovementDirectionSpeed);
+                    _newMovementQuaternion = Quaternion.Slerp(MovementRotatingModel.transform.rotation, _tmpRotation, RunnerDeltaTime * RotateToFaceMovementDirectionSpeed);
                 }
             }
 
@@ -249,7 +249,7 @@ namespace MoreMountains.TopDownEngine
                 if (_lastMovement != Vector3.zero)
                 {
                     _tmpRotation = Quaternion.LookRotation(_lastMovement);
-                    _newMovementQuaternion = Quaternion.Slerp(MovementRotatingModel.transform.rotation, _tmpRotation, Time.deltaTime * RotateToFaceMovementDirectionSpeed);
+                    _newMovementQuaternion = Quaternion.Slerp(MovementRotatingModel.transform.rotation, _tmpRotation, RunnerDeltaTime * RotateToFaceMovementDirectionSpeed);
                 }
             }
             
@@ -300,7 +300,7 @@ namespace MoreMountains.TopDownEngine
                 if (_rotationDirection != Vector3.zero)
                 {
                     _tmpRotation = Quaternion.LookRotation(_rotationDirection);
-                    _newWeaponQuaternion = Quaternion.Slerp(WeaponRotatingModel.transform.rotation, _tmpRotation, Time.deltaTime * RotateToFaceWeaponDirectionSpeed);
+                    _newWeaponQuaternion = Quaternion.Slerp(WeaponRotatingModel.transform.rotation, _tmpRotation, RunnerDeltaTime * RotateToFaceWeaponDirectionSpeed);
                 }
             }
 
@@ -314,7 +314,7 @@ namespace MoreMountains.TopDownEngine
                 if (_lastMovement != Vector3.zero)
                 {
                     _tmpRotation = Quaternion.LookRotation(_lastMovement);
-                    _newWeaponQuaternion = Quaternion.Slerp(WeaponRotatingModel.transform.rotation, _tmpRotation, Time.deltaTime * RotateToFaceWeaponDirectionSpeed);
+                    _newWeaponQuaternion = Quaternion.Slerp(WeaponRotatingModel.transform.rotation, _tmpRotation, RunnerDeltaTime * RotateToFaceWeaponDirectionSpeed);
                 }
             }
         }
@@ -345,9 +345,9 @@ namespace MoreMountains.TopDownEngine
                 return;
             }
             
-            if (Time.deltaTime != 0f)
+            if (RunnerDeltaTime != 0f)
             {
-                _newSpeed = (this.transform.position - _positionLastFrame) / Time.deltaTime;
+                _newSpeed = (this.transform.position - _positionLastFrame) / RunnerDeltaTime;
             }
 
             // relative speed
@@ -381,7 +381,7 @@ namespace MoreMountains.TopDownEngine
             _relativeSpeedNormalized = _relativeSpeed.normalized;
             _yRotationOffset = _modelAnglesYLastFrame - ModelAngles.y;
 
-            _yRotationOffsetSmoothed = Mathf.Lerp(_yRotationOffsetSmoothed, _yRotationOffset, RotationOffsetSmoothSpeed * Time.deltaTime);
+            _yRotationOffsetSmoothed = Mathf.Lerp(_yRotationOffsetSmoothed, _yRotationOffset, RotationOffsetSmoothSpeed * RunnerDeltaTime);
             
             // RotationSpeed
             if (Mathf.Abs(_modelAnglesYLastFrame - ModelAngles.y) > 1f)

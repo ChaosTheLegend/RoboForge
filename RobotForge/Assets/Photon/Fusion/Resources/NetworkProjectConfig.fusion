@@ -156,7 +156,8 @@
         "Assembly-CSharp-firstpass",
         "MoreMountains.TopDownEngine",
         "MoreMountains.TopDownEngine.Cinemachine",
-        "MoreMountains.TopDownEngine.Demos"
+        "MoreMountains.TopDownEngine.Demos",
+        "MoreMountains.Tools"
     ],
     "UseSerializableDictionary": true,
     "NullChecksForNetworkedProperties": true

@@ -1,13 +1,14 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using Fusion;
 using MoreMountains.Tools;
 using UnityEngine.UI;
 
 namespace MoreMountains.TopDownEngine
 {
     [RequireComponent(typeof(Weapon))]
-    public abstract class WeaponAim : MonoBehaviour, MMEventListener<TopDownEngineEvent>
+    public abstract class WeaponAim : NetworkBehaviour, MMEventListener<TopDownEngineEvent>
     {
         /// the list of possible control modes
         public enum AimControls { Off, PrimaryMovement, SecondaryMovement, Mouse, Script, SecondaryThenPrimaryMovement, PrimaryThenSecondaryMovement, CharacterRotateCameraDirection }
@@ -139,6 +140,12 @@ namespace MoreMountains.TopDownEngine
         protected Vector3 _newCamTargetPosition;
         protected Vector3 _newCamTargetDirection;
         protected bool _initialized = false;
+        
+        
+        /// <summary>
+        /// Use this for actions that doesn't need to be synched with other clients 
+        /// </summary>
+        protected float LocalDeltaTime => Time.deltaTime;
         
         /// <summary>
         /// On Start(), we trigger the initialization

@@ -339,13 +339,13 @@ namespace MoreMountains.TopDownEngine
 			{
 				if (_normalizedInput.magnitude == 0)
 				{
-					_acceleration = Mathf.Lerp(_acceleration, 0f, Deceleration * Time.deltaTime);
-                    _lerpedInput = Vector2.Lerp(_lerpedInput, _lerpedInput * _acceleration, Time.deltaTime * Deceleration);
+					_acceleration = Mathf.Lerp(_acceleration, 0f, Deceleration * RunnerDeltaTime);
+                    _lerpedInput = Vector2.Lerp(_lerpedInput, _lerpedInput * _acceleration,  RunnerDeltaTime * Deceleration);
                     interpolationSpeed = Deceleration;
 				}
 				else
 				{
-                    _acceleration = Mathf.Lerp(_acceleration, 1f, Acceleration * Time.deltaTime);
+                    _acceleration = Mathf.Lerp(_acceleration, 1f, Acceleration * RunnerDeltaTime);
                     _lerpedInput = AnalogInput ? Vector2.ClampMagnitude (_currentInput, _acceleration) : Vector2.ClampMagnitude(_normalizedInput, _acceleration);
                     interpolationSpeed = Acceleration;
                 }
@@ -357,7 +357,7 @@ namespace MoreMountains.TopDownEngine
 
             if (InterpolateMovementSpeed)
             {
-                _movementSpeed = Mathf.Lerp(_movementSpeed, MovementSpeed * ContextSpeedMultiplier * MovementSpeedMultiplier, interpolationSpeed * Time.deltaTime);
+                _movementSpeed = Mathf.Lerp(_movementSpeed, MovementSpeed * ContextSpeedMultiplier * MovementSpeedMultiplier, interpolationSpeed * RunnerDeltaTime);
             }
             else
             {
