@@ -32,6 +32,7 @@ namespace Network
         
         public Vector2 SecondaryMovement;
         public bool ProcessedSecondaryMovement;
+        public Vector3 MousePosition;
     }
     
     public class NetworkInputManager : InputManager 
@@ -53,6 +54,7 @@ namespace Network
         {
             _primaryMovement = InputData.PrimaryMovement;
             _secondaryMovement = SecondaryMovement;
+            MousePosition = InputData.MousePosition;
             
             UpdateButton(InputData.Jump, JumpButton);
             UpdateButton(InputData.Run, RunButton);

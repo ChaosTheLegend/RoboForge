@@ -111,6 +111,7 @@ namespace MoreMountains.TopDownEngine
         /// the camera rotation axis input value
         public float CameraRotationInput { get { return _cameraRotationInput; } }
 
+        public Vector3 MousePosition { get; protected set; }
         protected Camera _targetCamera;
         protected bool _camera3D;
         protected float _cameraAngle;

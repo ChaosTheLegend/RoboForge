@@ -148,6 +148,11 @@ namespace MoreMountains.TopDownEngine
         protected float LocalDeltaTime => Time.deltaTime;
         
         /// <summary>
+        /// Use this for actions that need to be synched with other clients 
+        /// </summary>
+        protected float RunnerDeltaTime => Runner.DeltaTime;
+        
+        /// <summary>
         /// On Start(), we trigger the initialization
         /// </summary>
         protected virtual void Start()

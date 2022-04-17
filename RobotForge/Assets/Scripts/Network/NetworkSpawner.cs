@@ -113,6 +113,7 @@ public class NetworkSpawner : MonoBehaviour, INetworkRunnerCallbacks
         //Axies
         data.PrimaryMovement = new Vector2(Input.GetAxis(prefix + "Horizontal"), Input.GetAxis(prefix + "Vertical")).normalized;
         data.SecondaryMovement = new Vector2(Input.GetAxis(prefix + "SecondaryHorizontal"), Input.GetAxis(prefix + "SecondaryVertical")).normalized;
+        data.MousePosition = Input.mousePosition;
         return data;
     }
     private MMInput.ButtonStates RecordButton(string axisName)

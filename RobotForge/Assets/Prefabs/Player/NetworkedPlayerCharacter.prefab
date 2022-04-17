@@ -69,7 +69,7 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialWeapon
       value: 
-      objectReference: {fileID: 8335593830201386184, guid: f6551f66aa0220c4f9c14785a1f3b29f,
+      objectReference: {fileID: 114020998038657194, guid: 731501ac589aa6a4bb064e397237b091,
         type: 3}
     - target: {fileID: 114691065578444412, guid: 5ee37e4df390c4544825b67e0cf6745e,
         type: 3}
@@ -78,9 +78,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114691065578444412, guid: 5ee37e4df390c4544825b67e0cf6745e,
         type: 3}
+      propertyPath: WeaponRotatingModel
+      value: 
+      objectReference: {fileID: 8846480218268068376}
+    - target: {fileID: 114691065578444412, guid: 5ee37e4df390c4544825b67e0cf6745e,
+        type: 3}
+      propertyPath: WeaponRotationSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114691065578444412, guid: 5ee37e4df390c4544825b67e0cf6745e,
+        type: 3}
       propertyPath: MovementRotatingModel
       value: 
       objectReference: {fileID: 8846480218268068376}
+    - target: {fileID: 114691065578444412, guid: 5ee37e4df390c4544825b67e0cf6745e,
+        type: 3}
+      propertyPath: MovementRotationSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1372077924604039323, guid: 5ee37e4df390c4544825b67e0cf6745e,
         type: 3}
       propertyPath: NetworkedBehaviours.Array.size

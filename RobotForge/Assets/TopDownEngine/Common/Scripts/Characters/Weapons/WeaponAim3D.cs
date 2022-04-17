@@ -215,8 +215,9 @@ namespace MoreMountains.TopDownEngine
 
         public virtual void GetMouseAim()
         {
-            _mousePosition = Input.mousePosition;
-            Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+	        var mousePosition = _weapon.Owner.LinkedInputManager.MousePosition;
+	        _mousePosition = mousePosition;
+            Ray ray = _mainCamera.ScreenPointToRay(mousePosition);
             Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow);
             float distance;
             if (_playerPlane.Raycast(ray, out distance))
@@ -351,7 +352,7 @@ namespace MoreMountains.TopDownEngine
 
             _aimAtDirection = target - transform.position;
             _aimAtQuaternion = Quaternion.LookRotation(_aimAtDirection, Vector3.up);
-            transform.rotation = Quaternion.Lerp(transform.rotation, _aimAtQuaternion, WeaponRotationSpeed * LocalDeltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, _aimAtQuaternion, WeaponRotationSpeed * RunnerDeltaTime);
             //transform.LookAt(target, Vector3.up);
         }
         
@@ -429,7 +430,7 @@ namespace MoreMountains.TopDownEngine
 				// if we're in follow mouse mode and the current control scheme is mouse, we move the reticle to the mouse's position
 				if (ReticleAtMousePosition && AimControl == AimControls.Mouse)
 				{
-					_reticle.transform.position = MMMaths.Lerp(_reticle.transform.position, _reticlePosition, 0.3f, LocalDeltaTime);
+					_reticle.transform.position = MMMaths.Lerp(_reticle.transform.position, _reticlePosition, 0.3f, RunnerDeltaTime);
                 }
             }
             _reticlePosition = _reticle.transform.position;
@@ -471,7 +472,7 @@ namespace MoreMountains.TopDownEngine
 		            }
 		            _newCamTargetPosition = this.transform.position + _newCamTargetDirection;
 
-		            _newCamTargetPosition = Vector3.Lerp(_weapon.Owner.CameraTarget.transform.position, Vector3.Lerp(this.transform.position, _newCamTargetPosition, CameraTargetOffset), LocalDeltaTime * CameraTargetSpeed);
+		            _newCamTargetPosition = Vector3.Lerp(_weapon.Owner.CameraTarget.transform.position, Vector3.Lerp(this.transform.position, _newCamTargetPosition, CameraTargetOffset), RunnerDeltaTime * CameraTargetSpeed);
 
 		            _weapon.Owner.CameraTarget.transform.position = _newCamTargetPosition;
 	            }
@@ -482,7 +483,7 @@ namespace MoreMountains.TopDownEngine
 		            
 		            _newCamTargetPosition = this.transform.position + _newCamTargetDirection;
 
-		            _newCamTargetPosition = Vector3.Lerp(_weapon.Owner.CameraTarget.transform.position, Vector3.Lerp(this.transform.position, _newCamTargetPosition, CameraTargetOffset), LocalDeltaTime * CameraTargetSpeed);
+		            _newCamTargetPosition = Vector3.Lerp(_weapon.Owner.CameraTarget.transform.position, Vector3.Lerp(this.transform.position, _newCamTargetPosition, CameraTargetOffset), RunnerDeltaTime * CameraTargetSpeed);
 
 		            _weapon.Owner.CameraTarget.transform.position = _newCamTargetPosition;
 	            }
