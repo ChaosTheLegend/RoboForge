@@ -324,11 +324,11 @@ namespace MoreMountains.TopDownEngine
             {
                 if (Grounded)
                 {
-                    _newVelocity.y = Mathf.Min(0, _newVelocity.y) - Gravity * Time.deltaTime;
+                    _newVelocity.y = Mathf.Min(0, _newVelocity.y) - Gravity * Runner.DeltaTime;
                 }
                 else
                 {
-                    _newVelocity.y = Velocity.y - Gravity * Time.deltaTime;
+                    _newVelocity.y = Velocity.y - Gravity * Runner.DeltaTime;
                     _newVelocity.y = Mathf.Max(_newVelocity.y, -MaximumFallSpeed);
                 }
             }
@@ -365,7 +365,7 @@ namespace MoreMountains.TopDownEngine
         /// </summary>
         protected virtual void ComputeVelocityDelta()
         {
-            _motion = _newVelocity * Time.deltaTime;
+            _motion = _newVelocity * Runner.DeltaTime;
             _horizontalVelocityDelta.x = _motion.x;
             _horizontalVelocityDelta.y = 0f;
             _horizontalVelocityDelta.z = _motion.z;
@@ -414,9 +414,9 @@ namespace MoreMountains.TopDownEngine
             _lastHorizontalVelocity.y = 0;
             _lastHorizontalVelocity.z = _newVelocity.z;
 
-            if (Time.deltaTime != 0f)
+            if (Runner.DeltaTime != 0f)
             {
-                Velocity = (_transform.position - _positionLastFrame) / Time.deltaTime;
+                Velocity = (_transform.position - _positionLastFrame) / Runner.DeltaTime;
             }
 
             _newHorizontalVelocity.x = Velocity.x;
@@ -443,7 +443,7 @@ namespace MoreMountains.TopDownEngine
             
             Velocity = _newVelocity;
 
-            Acceleration = (Velocity - VelocityLastFrame) / Time.deltaTime;
+            Acceleration = (Velocity - VelocityLastFrame) / Runner.DeltaTime;
         }
 
         /// <summary>
@@ -687,12 +687,12 @@ namespace MoreMountains.TopDownEngine
         {
             if (_movingPlatformCurrentHitCollider != null)
             {
-                if (!_newMovingPlatform && (Time.deltaTime != 0f))
+                if (!_newMovingPlatform && (Runner.DeltaTime != 0f))
                 {
                     _movingPlatformVelocity = (
                         _movingPlatformCurrentHitCollider.localToWorldMatrix.MultiplyPoint3x4(_movingPlatformCurrentHitColliderLocal)
                         - _lastMovingPlatformMatrix.MultiplyPoint3x4(_movingPlatformCurrentHitColliderLocal)
-                    ) / Time.deltaTime;
+                    ) / Runner.DeltaTime;
                 }
                 _lastMovingPlatformMatrix = _movingPlatformCurrentHitCollider.localToWorldMatrix;
                 _newMovingPlatform = false;
@@ -881,9 +881,9 @@ namespace MoreMountains.TopDownEngine
         {
             if (_impact.magnitude > 0.2f)
             {
-                _characterController.Move(_impact * Time.deltaTime);
+                _characterController.Move(_impact * Runner.DeltaTime);
             }
-            _impact = Vector3.Lerp(_impact, Vector3.zero, ImpactFalloff * Time.deltaTime);
+            _impact = Vector3.Lerp(_impact, Vector3.zero, ImpactFalloff * Runner.DeltaTime);
         }
 
         /// <summary>

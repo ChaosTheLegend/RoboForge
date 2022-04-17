@@ -24,6 +24,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2594670619392302544, guid: 7e75a4b8798335f449ca6122997ede6c,
         type: 3}
+      propertyPath: WalkSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594670619392302544, guid: 7e75a4b8798335f449ca6122997ede6c,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -206,6 +211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
+  maxSamples: 10
+  speedometerPosition: 2
 --- !u!114 &6320782810036881166 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8633486052375412821, guid: 7e75a4b8798335f449ca6122997ede6c,

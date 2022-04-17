@@ -631,7 +631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 016b3acf36189d047844fe870ca1ca98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
   resolutions:
   - {x: 640, y: 512}
   - {x: 960, y: 540}
@@ -3514,7 +3513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1934952968135354
 GameObject:
   m_ObjectHideFlags: 0
