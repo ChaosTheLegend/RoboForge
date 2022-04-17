@@ -12,9 +12,13 @@ using UnityEngine.SceneManagement;
 
 public class NetworkSpawner : MonoBehaviour, INetworkRunnerCallbacks
 {
-    [AssetsOnly]
-    [SerializeField] private NetworkObject playerObject;
+    
+    private NetworkObject selectedCharacter;
     [SerializeField] private string roomName;
+
+    [AssetsOnly]
+    [SerializeField] private NetworkObject[] playerObjects;
+
     [SerializeField] private List<Vector3> spawnPoints;
     [ShowInInspector] [ReadOnly] private Dictionary<PlayerRef, NetworkObject> spawnedPlayers;
 
@@ -26,20 +30,54 @@ public class NetworkSpawner : MonoBehaviour, INetworkRunnerCallbacks
     
     private NetworkRunner _runner;
 
+    #region DebugUi
+    private enum GuiState
+    {
+        CharacterSelect,
+        NetworkSelect,
+        Running
+    }
+
+    private GuiState currentState;
     private void OnGUI()
     {
         if (_runner == null)
         {
-            if (GUI.Button(new Rect(0,0,200,40), "Host"))
+            
+
+            if (currentState == GuiState.CharacterSelect)
             {
-                StartGame(GameMode.Host);
+                //Draw buttons for each character
+                for (int i = 0; i < playerObjects.Length; i++)
+                {
+                    if (GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2 - 60 + i * 45, 200, 40), playerObjects[i].name))
+                    {
+                        selectedCharacter = playerObjects[i];
+                        currentState = GuiState.NetworkSelect;
+                    }
+                }
             }
-            if (GUI.Button(new Rect(0,40,200,40), "Join"))
+
+            if (currentState == GuiState.NetworkSelect)
             {
-                StartGame(GameMode.Client);
+                if (GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2 - 40, 200, 40), "Host"))
+                {
+                    StartGame(GameMode.Host);
+                    currentState = GuiState.Running;
+                }
+
+                if (GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2 + 5, 200, 40), "Join"))
+                {
+                    StartGame(GameMode.Client);
+                    currentState = GuiState.Running;
+                }
             }
+
         }
     }
+    #endregion
+    
+    
     async void StartGame(GameMode mode)
     {
         // Create the Fusion runner and let it know that we will be providing user input
@@ -62,7 +100,7 @@ public class NetworkSpawner : MonoBehaviour, INetworkRunnerCallbacks
     {
         var spawnPoint = spawnPoints[spawnedPlayers.Count];
 
-        var playerObj = runner.Spawn(playerObject, spawnPoint, Quaternion.identity, player);
+        var playerObj = runner.Spawn(selectedCharacter, spawnPoint, Quaternion.identity, player);
         
         spawnedPlayers.Add(player, playerObj);
     }

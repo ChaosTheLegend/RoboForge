@@ -25,7 +25,9 @@ namespace MoreMountains.TopDownEngine
         public Vector3 InputMoveDirection = Vector3.zero;
 
         /// the different possible update modes
-        public enum UpdateModes { Update, FixedUpdate }
+        public enum UpdateModes { Update, FixedUpdate,
+            FixedUpdateNetwork
+        }
         /// the possible ways to transfer velocity on jump
         public enum VelocityTransferOnJump { NoTransfer, InitialVelocity, FloorVelocity, Relative }
 
@@ -213,6 +215,20 @@ namespace MoreMountains.TopDownEngine
         {
             base.Update();
             if (UpdateMode == UpdateModes.Update)
+            {
+                ProcessUpdate();
+            }
+        }
+
+        /// <summary>
+        /// On FixedUpdateNetwork we process our Update computations if UpdateMode is set to FixedUpdateNetwork
+        /// </summary>
+        public override void FixedUpdateNetwork()
+        {
+            base.FixedUpdateNetwork();
+            ApplyImpact();
+            GetMovingPlatformVelocity();
+            if (UpdateMode == UpdateModes.FixedUpdateNetwork)
             {
                 ProcessUpdate();
             }
