@@ -1661,19 +1661,19 @@ PrefabInstance:
     - target: {fileID: 5397385696355033187, guid: b66f48898e8f0c34fac85bd350793158,
         type: 3}
       propertyPath: playerObjects.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5397385696355033187, guid: b66f48898e8f0c34fac85bd350793158,
         type: 3}
       propertyPath: playerObjects.Array.data[0]
       value: 
-      objectReference: {fileID: 1655630145471853716, guid: b81a2dfabcb5cb94ba32b3fc1c4d0374,
+      objectReference: {fileID: 3935681465962181583, guid: 7e75a4b8798335f449ca6122997ede6c,
         type: 3}
     - target: {fileID: 5397385696355033187, guid: b66f48898e8f0c34fac85bd350793158,
         type: 3}
       propertyPath: playerObjects.Array.data[1]
       value: 
-      objectReference: {fileID: 3935681465962181583, guid: 7e75a4b8798335f449ca6122997ede6c,
+      objectReference: {fileID: 4804827923174134646, guid: 3334ddcd808ff14469251d85854337f2,
         type: 3}
     - target: {fileID: 5397385696355033187, guid: b66f48898e8f0c34fac85bd350793158,
         type: 3}

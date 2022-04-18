@@ -39,6 +39,8 @@ namespace MoreMountains.TopDownEngine
         [MMCondition("ShouldRotateToFaceMovementDirection", true)]
         [Tooltip("the object we want to rotate towards direction. If left empty, we'll use the Character's model")]
         public GameObject MovementRotatingModel;
+        [Tooltip("the object which will be used to calculate direction. If left empty, we'll use the Character's model")]
+        public GameObject InterpolationTarget;
         /// the speed at which to rotate towards direction (smooth and absolute only)
         [MMCondition("ShouldRotateToFaceMovementDirection", true)]
         [Tooltip("the speed at which to rotate towards direction (smooth and absolute only)")]
@@ -235,7 +237,7 @@ namespace MoreMountains.TopDownEngine
                 if (_currentDirection != Vector3.zero)
                 {
                     _tmpRotation = Quaternion.LookRotation(_currentDirection);
-                    _newMovementQuaternion = Quaternion.Slerp(MovementRotatingModel.transform.rotation, _tmpRotation, RunnerDeltaTime * RotateToFaceMovementDirectionSpeed);
+                    _newMovementQuaternion = Quaternion.Slerp(InterpolationTarget.transform.rotation, _tmpRotation, RunnerDeltaTime * RotateToFaceMovementDirectionSpeed);
                 }
             }
 
@@ -249,12 +251,12 @@ namespace MoreMountains.TopDownEngine
                 if (_lastMovement != Vector3.zero)
                 {
                     _tmpRotation = Quaternion.LookRotation(_lastMovement);
-                    _newMovementQuaternion = Quaternion.Slerp(MovementRotatingModel.transform.rotation, _tmpRotation, RunnerDeltaTime * RotateToFaceMovementDirectionSpeed);
+                    _newMovementQuaternion = Quaternion.Slerp(InterpolationTarget.transform.rotation, _tmpRotation, RunnerDeltaTime * RotateToFaceMovementDirectionSpeed);
                 }
             }
             
-            ModelDirection = MovementRotatingModel.transform.forward.normalized;
-            ModelAngles = MovementRotatingModel.transform.eulerAngles;
+            ModelDirection = InterpolationTarget.transform.forward.normalized;
+            ModelAngles = InterpolationTarget.transform.eulerAngles;
         }
 
         /// <summary>
@@ -353,11 +355,11 @@ namespace MoreMountains.TopDownEngine
             // relative speed
             if ((_characterHandleWeapon == null) || (_characterHandleWeapon.CurrentWeapon == null))
             {
-                _relativeSpeed = MovementRotatingModel.transform.InverseTransformVector(_newSpeed);
+                _relativeSpeed = InterpolationTarget.transform.InverseTransformVector(_newSpeed);
             }
             else
             {
-                _relativeSpeed = WeaponRotatingModel.transform.InverseTransformVector(_newSpeed);
+                _relativeSpeed = InterpolationTarget.transform.InverseTransformVector(_newSpeed);
             }
 
             // remapped speed
