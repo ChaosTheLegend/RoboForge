@@ -59,7 +59,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 42b24d338df372049a18bd257e6bc550, type: 2}
+      objectReference: {fileID: 2100000, guid: 8f9372f58500a3f46ba541ea24e6d105, type: 2}
     - target: {fileID: 114060530881921866, guid: 5ee37e4df390c4544825b67e0cf6745e,
         type: 3}
       propertyPath: UpdateMode
@@ -130,7 +130,7 @@ PrefabInstance:
         type: 3}
       propertyPath: NetworkedBehaviours.Array.data[2]
       value: 
-      objectReference: {fileID: 8824309777467791683}
+      objectReference: {fileID: 7260547613344766504}
     - target: {fileID: 1372077924604039323, guid: 5ee37e4df390c4544825b67e0cf6745e,
         type: 3}
       propertyPath: NetworkedBehaviours.Array.data[3]
@@ -250,7 +250,7 @@ MonoBehaviour:
   CharacterBrain: {fileID: 0}
   OptimizeForMobile: 1
   linkedInputManager: {fileID: 2390660524713862648}
---- !u!114 &8824309777467791683
+--- !u!114 &7260547613344766504
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -259,12 +259,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2706917329253381840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d013f927595204bba631fc1bc0ec82, type: 3}
+  m_Script: {fileID: 11500000, guid: aa97bb7246ae62a41859554dd3c16fee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  maxSamples: 10
-  speedometerPosition: 2
+  AbilityStartSfx: {fileID: 0}
+  AbilityInProgressSfx: {fileID: 0}
+  AbilityStopSfx: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStopFeedbacks: {fileID: 0}
+  AbilityPermitted: 1
+  BlockingMovementStates: 
+  BlockingConditionStates: 
+  ModelToRotate: {fileID: 8846480218268068376}
 --- !u!114 &6843963677294562443 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8894156671597670367, guid: 5ee37e4df390c4544825b67e0cf6745e,

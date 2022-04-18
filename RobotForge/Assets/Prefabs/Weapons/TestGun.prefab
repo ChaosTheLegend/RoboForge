@@ -453,7 +453,7 @@ MonoBehaviour:
   _interpolationDataSource: 0
   AimControl: 3
   RotationMode: 0
-  WeaponRotationSpeed: 1
+  WeaponRotationSpeed: 5
   MinimumAngle: -180
   MaximumAngle: 180
   MinimumMagnitude: 0.2

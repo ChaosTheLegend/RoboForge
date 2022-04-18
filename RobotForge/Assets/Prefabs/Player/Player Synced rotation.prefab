@@ -67,31 +67,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2722144537758454470, guid: 7e75a4b8798335f449ca6122997ede6c,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8f9372f58500a3f46ba541ea24e6d105, type: 2}
     - target: {fileID: 3935681465962181583, guid: 7e75a4b8798335f449ca6122997ede6c,
         type: 3}
       propertyPath: NetworkedBehaviours.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 3935681465962181583, guid: 7e75a4b8798335f449ca6122997ede6c,
-        type: 3}
-      propertyPath: NetworkedBehaviours.Array.data[2]
-      value: 
-      objectReference: {fileID: 7260547613344766504}
     - target: {fileID: 3935681465962181583, guid: 7e75a4b8798335f449ca6122997ede6c,
         type: 3}
       propertyPath: NetworkedBehaviours.Array.data[3]
       value: 
-      objectReference: {fileID: 3083505924837354546}
+      objectReference: {fileID: 8081472589419010986}
     - target: {fileID: 3935681465962181583, guid: 7e75a4b8798335f449ca6122997ede6c,
         type: 3}
       propertyPath: NetworkedBehaviours.Array.data[4]
       value: 
-      objectReference: {fileID: 279286036382605548}
+      objectReference: {fileID: 3083505924837354546}
     - target: {fileID: 3935681465962181583, guid: 7e75a4b8798335f449ca6122997ede6c,
         type: 3}
       propertyPath: NetworkedBehaviours.Array.data[5]
@@ -107,8 +97,12 @@ PrefabInstance:
       propertyPath: NetworkGuid.RawGuidValue.Array.data[1]
       value: -993250952068913815
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8824309777467791683, guid: 7e75a4b8798335f449ca6122997ede6c, type: 3}
+    - target: {fileID: 7260547613344766504, guid: 7e75a4b8798335f449ca6122997ede6c,
+        type: 3}
+      propertyPath: rotationMode
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e75a4b8798335f449ca6122997ede6c, type: 3}
 --- !u!114 &279286036382605548 stripped
 MonoBehaviour:
@@ -116,18 +110,12 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 8372320320353181881}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1077897541377116833}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1077897541377116833 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8846480218268068376, guid: 7e75a4b8798335f449ca6122997ede6c,
-    type: 3}
-  m_PrefabInstance: {fileID: 8372320320353181881}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3083505924837354546 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6843963677294562443, guid: 7e75a4b8798335f449ca6122997ede6c,
@@ -146,7 +134,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8372320320353181881}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7260547613344766504
+--- !u!114 &8081472589419010986
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,7 +143,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5881861646440240745}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa97bb7246ae62a41859554dd3c16fee, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a07c6668aa55403790d27b575279549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
@@ -167,4 +155,26 @@ MonoBehaviour:
   AbilityPermitted: 1
   BlockingMovementStates: 
   BlockingConditionStates: 
-  ModelToRotate: {fileID: 1077897541377116833}
+  InitialWeapon: {fileID: 114020998038657194, guid: 731501ac589aa6a4bb064e397237b091,
+    type: 3}
+  CanPickupWeapons: 1
+  WeaponUseFeedback: {fileID: 0}
+  WeaponAttachment: {fileID: 5887474732791281653}
+  ProjectileSpawn: {fileID: 0}
+  AutomaticallyBindAnimator: 1
+  AmmoDisplayID: 0
+  AutoIK: 1
+  ContinuousPress: 0
+  GettingHitInterruptsAttack: 0
+  UseSecondaryAxisThresholdToShoot: 0
+  BufferInput: 0
+  NewInputExtendsBuffer: 0
+  MaximumBufferDuration: 0.25
+  RequiresPerfectTile: 0
+  CurrentWeapon: {fileID: 0}
+--- !u!4 &5887474732791281653 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2703558263281227596, guid: 7e75a4b8798335f449ca6122997ede6c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8372320320353181881}
+  m_PrefabAsset: {fileID: 0}
