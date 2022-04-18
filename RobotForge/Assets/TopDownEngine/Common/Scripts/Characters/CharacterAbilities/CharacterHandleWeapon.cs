@@ -3,6 +3,7 @@ using System.Collections;
 using MoreMountains.Tools;
 using MoreMountains.Feedbacks;
 using System.Collections.Generic;
+using Fusion;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -420,11 +421,20 @@ namespace MoreMountains.TopDownEngine
             }
         }
 
+        private T InstantiateWithAuthority<T>(T prefab, Vector3 position, Quaternion rotation) where T : MonoBehaviour
+        {
+            var obj = prefab.GetComponent<NetworkObject>();
+            var myAuthority = GetComponent<NetworkObject>().InputAuthority;
+
+            var inst = Runner.Spawn(obj, position, rotation, myAuthority);
+            return inst.GetComponent<T>();
+        }
+        
         protected virtual void InstantiateWeapon(Weapon newWeapon, string weaponID, bool combo = false)
         {
             if (!combo)
             {
-                CurrentWeapon = (Weapon)Instantiate(newWeapon, WeaponAttachment.transform.position + newWeapon.WeaponAttachmentOffset, WeaponAttachment.transform.rotation);
+                CurrentWeapon = InstantiateWithAuthority(newWeapon, WeaponAttachment.transform.position + newWeapon.WeaponAttachmentOffset, WeaponAttachment.transform.rotation);
             }
 
             CurrentWeapon.name = newWeapon.name;

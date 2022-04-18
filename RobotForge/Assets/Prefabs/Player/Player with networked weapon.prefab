@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8372320320353181881
+--- !u!1001 &5522247380673783343
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2706917329253381840, guid: 7e75a4b8798335f449ca6122997ede6c,
         type: 3}
       propertyPath: m_Name
-      value: Player Synced rotation
+      value: Player with networked weapon
       objectReference: {fileID: 0}
     - target: {fileID: 2709487192733487170, guid: 7e75a4b8798335f449ca6122997ede6c,
         type: 3}
@@ -67,6 +67,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2722144537758454470, guid: 7e75a4b8798335f449ca6122997ede6c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 37cb86b5e2e83fb47a760ff23a51aff6, type: 2}
+    - target: {fileID: 3935681465962181583, guid: 7e75a4b8798335f449ca6122997ede6c,
+        type: 3}
+      propertyPath: Flags
+      value: 2305
+      objectReference: {fileID: 0}
     - target: {fileID: 3935681465962181583, guid: 7e75a4b8798335f449ca6122997ede6c,
         type: 3}
       propertyPath: NetworkedBehaviours.Array.size
@@ -76,51 +86,47 @@ PrefabInstance:
         type: 3}
       propertyPath: NetworkedBehaviours.Array.data[3]
       value: 
-      objectReference: {fileID: 8081472589419010986}
+      objectReference: {fileID: 8325608809379644793}
     - target: {fileID: 3935681465962181583, guid: 7e75a4b8798335f449ca6122997ede6c,
         type: 3}
       propertyPath: NetworkedBehaviours.Array.data[4]
       value: 
-      objectReference: {fileID: 3083505924837354546}
+      objectReference: {fileID: 8481858780977997643}
     - target: {fileID: 3935681465962181583, guid: 7e75a4b8798335f449ca6122997ede6c,
         type: 3}
       propertyPath: NetworkedBehaviours.Array.data[5]
       value: 
-      objectReference: {fileID: 279286036382605548}
+      objectReference: {fileID: 1321896685721741988}
     - target: {fileID: 3935681465962181583, guid: 7e75a4b8798335f449ca6122997ede6c,
         type: 3}
       propertyPath: NetworkGuid.RawGuidValue.Array.data[0]
-      value: 4967909647338779699
+      value: 352723116503353779
       objectReference: {fileID: 0}
     - target: {fileID: 3935681465962181583, guid: 7e75a4b8798335f449ca6122997ede6c,
         type: 3}
       propertyPath: NetworkGuid.RawGuidValue.Array.data[1]
-      value: -993250952068913815
+      value: -3809988683457998216
       objectReference: {fileID: 0}
     - target: {fileID: 7260547613344766504, guid: 7e75a4b8798335f449ca6122997ede6c,
         type: 3}
       propertyPath: rotationMode
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8081472589419010986, guid: 7e75a4b8798335f449ca6122997ede6c, type: 3}
+    - {fileID: 8633486052375412821, guid: 7e75a4b8798335f449ca6122997ede6c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7e75a4b8798335f449ca6122997ede6c, type: 3}
---- !u!114 &279286036382605548 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8633486052375412821, guid: 7e75a4b8798335f449ca6122997ede6c,
+--- !u!4 &696688893877933198 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4974740804811207329, guid: 7e75a4b8798335f449ca6122997ede6c,
     type: 3}
-  m_PrefabInstance: {fileID: 8372320320353181881}
+  m_PrefabInstance: {fileID: 5522247380673783343}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3083505924837354546 stripped
+--- !u!114 &1321896685721741988 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6843963677294562443, guid: 7e75a4b8798335f449ca6122997ede6c,
     type: 3}
-  m_PrefabInstance: {fileID: 8372320320353181881}
+  m_PrefabInstance: {fileID: 5522247380673783343}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -128,19 +134,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85da79fb49b80d94e894fbad8055ea20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &5881861646440240745 stripped
+--- !u!1 &7580139007474618623 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2706917329253381840, guid: 7e75a4b8798335f449ca6122997ede6c,
     type: 3}
-  m_PrefabInstance: {fileID: 8372320320353181881}
+  m_PrefabInstance: {fileID: 5522247380673783343}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8081472589419010986
+--- !u!114 &8325608809379644793
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5881861646440240745}
+  m_GameObject: {fileID: 7580139007474618623}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a07c6668aa55403790d27b575279549, type: 3}
@@ -159,7 +165,7 @@ MonoBehaviour:
     type: 3}
   CanPickupWeapons: 1
   WeaponUseFeedback: {fileID: 0}
-  WeaponAttachment: {fileID: 5887474732791281653}
+  WeaponAttachment: {fileID: 0}
   ProjectileSpawn: {fileID: 0}
   AutomaticallyBindAnimator: 1
   AmmoDisplayID: 0
@@ -172,9 +178,29 @@ MonoBehaviour:
   MaximumBufferDuration: 0.25
   RequiresPerfectTile: 0
   CurrentWeapon: {fileID: 0}
---- !u!4 &5887474732791281653 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2703558263281227596, guid: 7e75a4b8798335f449ca6122997ede6c,
-    type: 3}
-  m_PrefabInstance: {fileID: 8372320320353181881}
+--- !u!114 &8481858780977997643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7580139007474618623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+  InterpolationSpace: 0
+  InterpolationTarget: {fileID: 696688893877933198}
+  InterpolateErrorCorrection: 1
+  InterpolatedErrorCorrectionSettings:
+    MinRate: 3.3
+    MaxRate: 10
+    PosBlendStart: 0.25
+    PosBlendEnd: 1
+    PosMinCorrection: 0.025
+    PosTeleportDistance: 2
+    RotBlendStart: 0.1
+    RotBlendEnd: 0.5
+    RotTeleportRadians: 1.5

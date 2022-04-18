@@ -138,7 +138,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411070534667488}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.079, z: -0.195}
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 0
@@ -244,10 +244,10 @@ GameObject:
   - component: {fileID: 4202281423975200}
   - component: {fileID: 114020998038657194}
   - component: {fileID: 95333093895194968}
-  - component: {fileID: 114632726916512702}
   - component: {fileID: 114398865862223764}
-  - component: {fileID: 2268495385814980757}
-  - component: {fileID: 2058526148883475668}
+  - component: {fileID: 7640583297125320384}
+  - component: {fileID: 8438765615521425245}
+  - component: {fileID: 2657090968049150261}
   m_Layer: 0
   m_Name: NetworkLoftHandgun
   m_TagString: Untagged
@@ -370,44 +370,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114632726916512702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565775507863266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0514d297deadac74fb15a7b7326ff0d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
-  AimControl: 3
-  RotationMode: 0
-  WeaponRotationSpeed: 10
-  MinimumAngle: -180
-  MaximumAngle: 180
-  MinimumMagnitude: 0.2
-  ReticleType: 2
-  Reticle: {fileID: 1373789777524232, guid: 65207112181da7b41bee2bb13af8b883, type: 3}
-  ReticleDistance: 0
-  ReticleHeight: 0
-  ReticleAtMousePosition: 1
-  RotateReticle: 1
-  ReplaceMousePointer: 1
-  MouseDeadZoneRadius: 2.5
-  DisplayReticle: 1
-  MoveCameraTargetTowardsReticle: 1
-  CameraTargetOffset: 0.3
-  CameraTargetMaxDistance: 5
-  CameraTargetSpeed: 5
-  Unrestricted3DAim: 0
-  ReticleMovesWithSlopes: 0
-  ReticleObstacleMask:
-    serializedVersion: 2
-    m_Bits: 0
-  MaximumSlopeElevation: 50
 --- !u!114 &114398865862223764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,7 +389,7 @@ MonoBehaviour:
     type: 3}
   PoolSize: 20
   PoolCanExpand: 1
---- !u!114 &2268495385814980757
+--- !u!114 &7640583297125320384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -449,10 +411,42 @@ MonoBehaviour:
     RawGuidValue: 731501ac589aa6a4bb064e397237b091
   NestedObjects: []
   NetworkedBehaviours:
-  - {fileID: 114632726916512702}
-  - {fileID: 2058526148883475668}
+  - {fileID: 8438765615521425245}
+  - {fileID: 2657090968049150261}
   SimulationBehaviours: []
---- !u!114 &2058526148883475668
+--- !u!114 &8438765615521425245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565775507863266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be6934f52c36c744e89a04c8ee5ad9ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+  AimControl: 2
+  RotationMode: 0
+  WeaponRotationSpeed: 1
+  MinimumAngle: -180
+  MaximumAngle: 180
+  MinimumMagnitude: 0.2
+  ReticleType: 0
+  Reticle: {fileID: 0}
+  ReticleDistance: 0
+  ReticleHeight: 0
+  ReticleAtMousePosition: 0
+  RotateReticle: 0
+  ReplaceMousePointer: 1
+  MouseDeadZoneRadius: 0.5
+  DisplayReticle: 1
+  MoveCameraTargetTowardsReticle: 0
+  CameraTargetOffset: 0.3
+  CameraTargetMaxDistance: 10
+  CameraTargetSpeed: 5
+--- !u!114 &2657090968049150261
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -465,7 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  InterpolationSpace: 1
+  InterpolationSpace: 0
   InterpolationTarget: {fileID: 4070249879446882}
   InterpolateErrorCorrection: 1
   InterpolatedErrorCorrectionSettings:

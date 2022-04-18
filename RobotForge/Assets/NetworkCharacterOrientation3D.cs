@@ -7,17 +7,14 @@ using UnityEngine;
 
 public class NetworkCharacterOrientation3D : CharacterAbility
 {
-    [SerializeField] private GameObject ModelToRotate;
     [SerializeField] private float RotationSpeed = 10f;
     [SerializeField] private RotationMode rotationMode;
     private Quaternion _lastRotation;
-    
-    private CharacterHandleWeapon _characterHandleWeapon;
-    
-    [Networked] private  Quaternion _targetRotation { get; set; }
-    
-    private Vector3 _aim;
     private RotationMode currentRotationMode;
+    private CharacterHandleWeapon _characterHandleWeapon;
+    private InputManager InputManager => _character.LinkedInputManager;
+    [Networked] private  Quaternion _targetRotation { get; set; }
+
     private enum RotationMode
     {
         None,
@@ -25,6 +22,8 @@ public class NetworkCharacterOrientation3D : CharacterAbility
         FaceWeapon,
         Both
     }
+    
+    
     public override void Spawned()
     {
         _characterHandleWeapon = GetComponent<CharacterHandleWeapon>();
@@ -33,32 +32,36 @@ public class NetworkCharacterOrientation3D : CharacterAbility
     public override void FixedUpdateNetwork()
     {
         if(rotationMode == RotationMode.None) return;
+            if(_controller3D == null) return;
         
-        if (ModelToRotate == null) return;
-        if(_controller3D == null) return;
-        
-        currentRotationMode = RotationMode.None;
-        
+        currentRotationMode = rotationMode;
+
         //Character won't rotate to face weapon if it's not equipped
-        if(rotationMode is RotationMode.FaceWeapon or RotationMode.Both) RotateToFaceWeapon();
-        if(currentRotationMode == RotationMode.FaceWeapon) return;
+        if (currentRotationMode is RotationMode.FaceWeapon or RotationMode.Both)
+        {
+            RotateToFaceWeapon();
+        }
+        
         
         //Check if character has a weapon
-        if(rotationMode is RotationMode.FaceMovement or RotationMode.Both) RotateToFaceMovement();
+        if (currentRotationMode is RotationMode.FaceMovement or RotationMode.Both)
+        {
+            RotateToFaceMovement();
+        }
         
     }
     
     private void RotateToFaceWeapon()
     {
         if(_characterHandleWeapon == null) return;
-        var weapon = _characterHandleWeapon.CurrentWeapon;
-        if (weapon == null) return;
+        if(_characterHandleWeapon.CurrentWeapon == null) return;
+        if(_characterHandleWeapon.WeaponAimComponent== null) return;
         
-        //Smoothly rotate towards the aim
         var aim = _characterHandleWeapon.WeaponAimComponent.CurrentAim;
-        aim.y = 0;
+        
         _targetRotation = Quaternion.LookRotation(aim);
-        ModelToRotate.transform.rotation = Quaternion.Slerp(ModelToRotate.transform.rotation, _targetRotation, RunnerDeltaTime * RotationSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, _targetRotation, RunnerDeltaTime * RotationSpeed);
+        
         currentRotationMode = RotationMode.FaceWeapon;
     }
 
@@ -68,7 +71,7 @@ public class NetworkCharacterOrientation3D : CharacterAbility
     {
         if (_controller3D.Velocity.sqrMagnitude < 1f)
         {
-            ModelToRotate.transform.rotation =  Quaternion.Slerp(ModelToRotate.transform.rotation, _lastRotation, RunnerDeltaTime * RotationSpeed);
+            transform.rotation =  Quaternion.Slerp(transform.rotation, _lastRotation, RunnerDeltaTime * RotationSpeed);
             return;
         }
         
@@ -78,12 +81,13 @@ public class NetworkCharacterOrientation3D : CharacterAbility
         
         //Smoothly rotate to face movement direction
         var targetRotation = Quaternion.LookRotation(movementDirection);
-        var rotation = ModelToRotate.transform.rotation;
+        var rotation = transform.rotation;
         rotation =
             Quaternion.Lerp(rotation, targetRotation, RunnerDeltaTime * 10f);
-        ModelToRotate.transform.rotation = rotation;
+        transform.rotation = rotation;
         _lastRotation = rotation;
-
+        
+        
         currentRotationMode = RotationMode.FaceMovement;
     }
 }

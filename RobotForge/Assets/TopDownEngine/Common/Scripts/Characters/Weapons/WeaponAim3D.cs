@@ -245,7 +245,7 @@ namespace MoreMountains.TopDownEngine
 		/// <summary>
 		/// Every frame, we compute the aim direction and rotate the weapon accordingly
 		/// </summary>
-		protected override void Update()
+		public override void FixedUpdateNetwork()
         {
 	        HideMousePointer();
 	        HideReticle();
@@ -255,6 +255,10 @@ namespace MoreMountains.TopDownEngine
             }
             GetCurrentAim();
             DetermineWeaponRotation();
+            
+            MoveTarget();
+            MoveReticle();
+            UpdatePlane();
         }
 
         /// <summary>
